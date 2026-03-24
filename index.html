@@ -1,0 +1,780 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Rajvardhan Singh · Digital & Cloud Alchemist</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>">
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Rajvardhan Singh — Web developer & DevOps engineer. Crafting responsive UIs, scalable cloud infrastructure, and modern digital experiences.">
+  <meta name="keywords" content="web developer, cloud engineer, devops, UI/UX, AWS, kubernetes, terraform, react, portfolio">
+  <meta name="author" content="Rajvardhan Singh">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Rajvardhan Singh · Digital & Cloud Alchemist">
+  <meta property="og:description" content="Blending beautiful frontends with robust cloud architecture. Explore the fusion of design & infrastructure.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://placehold.co/1200x630/0a0e1a/8b5cf6?text=Rajvardhan+Portfolio">
+  <meta property="og:url" content="https://www.rajvardhansingh.in">
+  
+  <!-- Fonts: Modern & Performant -->
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.5.0/css/glide.core.min.css">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-deep: #01010c;
+      --bg-elevated: #0a0d1a;
+      --bg-card: #11162a;
+      --primary: #c084fc;
+      --primary-dark: #a855f7;
+      --secondary: #2dd4bf;
+      --accent: #fb923c;
+      --text-primary: #ffffff;
+      --text-secondary: #cbd5e6;
+      --text-muted: #8b9bb0;
+      --gradient-1: linear-gradient(125deg, #c084fc, #2dd4bf);
+      --gradient-2: linear-gradient(145deg, #fb923c, #ec489a);
+      --shadow-card: 0 20px 40px -12px rgba(0,0,0,0.6), 0 1px 0.5px rgba(255,255,255,0.05) inset;
+      --shadow-hover: 0 35px 55px -18px rgba(192,132,252,0.4);
+      --border-radius-card: 2rem;
+      --transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    }
+
+    body {
+      font-family: 'Satoshi', sans-serif;
+      background: radial-gradient(circle at 10% 20%, #03050f, #000000);
+      color: var(--text-secondary);
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Clash Display', sans-serif;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 1.8rem;
+    }
+
+    .section {
+      padding: 6rem 0;
+      position: relative;
+    }
+
+    /* section headers */
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .section-eyebrow {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      font-weight: 500;
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: inline-block;
+      padding: 0.4rem 1.5rem;
+      border-radius: 60px;
+      border: 1px solid rgba(192,132,252,0.3);
+      backdrop-filter: blur(4px);
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-size: 3.5rem;
+      line-height: 1.2;
+      background: linear-gradient(135deg, #ffffff, #c084fc, #2dd4bf);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    @media (max-width: 700px) {
+      .section-title { font-size: 2.5rem; }
+      .section { padding: 4rem 0; }
+    }
+
+    /* buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+      padding: 0.9rem 2.2rem;
+      border-radius: 80px;
+      font-weight: 600;
+      transition: var(--transition);
+      cursor: pointer;
+      background: rgba(17, 22, 42, 0.8);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(192,132,252,0.3);
+      color: white;
+      font-size: 0.95rem;
+    }
+    .btn-primary {
+      background: linear-gradient(105deg, #a855f7, #2dd4bf);
+      border: none;
+      box-shadow: 0 12px 20px -12px rgba(168,85,247,0.4);
+    }
+    .btn-primary:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 20px 30px -12px #a855f7;
+    }
+    .btn-outline:hover {
+      background: rgba(192,132,252,0.2);
+      border-color: #c084fc;
+      transform: translateY(-3px);
+    }
+
+    /* header glass */
+    header {
+      position: fixed;
+      width: 100%;
+      background: rgba(1, 1, 12, 0.7);
+      backdrop-filter: blur(18px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(192,132,252,0.2);
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      font-family: 'Clash Display', sans-serif;
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .logo-icon {
+      width: 42px; height: 42px;
+      background: var(--gradient-1);
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.4rem;
+    }
+    .nav-menu {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-link {
+      color: var(--text-muted);
+      font-weight: 500;
+      transition: var(--transition);
+      font-size: 1rem;
+    }
+    .nav-link i { margin-right: 6px; font-size: 0.85rem; }
+    .nav-link:hover, .nav-link.active {
+      color: white;
+    }
+    .hamburger { display: none; flex-direction: column; gap: 6px; cursor: pointer; }
+    .hamburger span { width: 28px; height: 2px; background: white; border-radius: 2px; }
+
+    /* hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .hero-badge {
+      background: rgba(192,132,252,0.1);
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(192,132,252,0.3);
+      padding: 0.5rem 1.5rem;
+      border-radius: 60px;
+      width: fit-content;
+      margin-bottom: 1.8rem;
+      font-size: 0.9rem;
+    }
+    .hero-title {
+      font-size: 4rem;
+      line-height: 1.1;
+      margin-bottom: 1.2rem;
+    }
+    .gradient-text {
+      background: var(--gradient-2);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      max-width: 90%;
+    }
+    .dual-sphere {
+      display: flex;
+      gap: 1.8rem;
+    }
+    .sphere-card {
+      background: var(--bg-card);
+      border-radius: 2rem;
+      padding: 2rem 1.5rem;
+      flex: 1;
+      border: 1px solid rgba(192,132,252,0.2);
+      transition: var(--transition);
+      backdrop-filter: blur(5px);
+    }
+    .sphere-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--primary);
+      box-shadow: var(--shadow-hover);
+    }
+    .sphere-icon {
+      font-size: 2.5rem;
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    /* social sidebar */
+    .hero-social {
+      position: fixed;
+      left: 1.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      z-index: 90;
+    }
+    .hero-social a {
+      width: 3rem;
+      height: 3rem;
+      background: rgba(17,22,42,0.7);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      border: 1px solid rgba(192,132,252,0.3);
+      transition: var(--transition);
+      backdrop-filter: blur(5px);
+    }
+    .hero-social a:hover {
+      background: var(--primary-dark);
+      color: white;
+      transform: scale(1.15);
+    }
+
+    /* about */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.2fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .hologram {
+      background: var(--bg-card);
+      border-radius: 2.5rem;
+      padding: 1rem;
+      border: 1px solid rgba(192,132,252,0.2);
+      transition: var(--transition);
+    }
+    .hologram img {
+      width: 100%;
+      border-radius: 2rem;
+      filter: grayscale(0.2) contrast(1.05);
+    }
+    .skill-chip {
+      display: inline-block;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(192,132,252,0.2);
+      border-radius: 60px;
+      padding: 0.6rem 1.6rem;
+      margin: 0 0.5rem 0.8rem 0;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+    .skill-chip i { margin-right: 6px; color: #2dd4bf; }
+
+    /* services grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.8rem;
+    }
+    .crystal-card {
+      background: var(--bg-card);
+      border-radius: 2rem;
+      padding: 2rem 1.5rem;
+      border: 1px solid rgba(192,132,252,0.15);
+      transition: var(--transition);
+      text-align: center;
+    }
+    .crystal-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--primary);
+      box-shadow: 0 20px 30px -15px rgba(0,0,0,0.5);
+    }
+    .service-icon {
+      font-size: 2.8rem;
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    /* stats */
+    .stats {
+      background: var(--bg-elevated);
+      border-radius: 5rem;
+      margin: 0 1rem;
+      padding: 4rem 2rem;
+      border: 1px solid rgba(192,132,252,0.2);
+    }
+    .stats-grid {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .stat-number {
+      font-size: 3.5rem;
+      font-weight: 700;
+      font-family: 'Clash Display';
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      line-height: 1;
+    }
+
+    /* portfolio */
+    .portfolio-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+    .tab-btn {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(192,132,252,0.2);
+      padding: 0.7rem 2rem;
+      border-radius: 60px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.2s;
+      color: var(--text-secondary);
+    }
+    .tab-btn.active, .tab-btn:hover {
+      background: var(--gradient-1);
+      color: white;
+      border-color: transparent;
+    }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+      gap: 2rem;
+    }
+    .masterwork-card {
+      background: var(--bg-card);
+      border-radius: 2rem;
+      padding: 2rem;
+      border: 1px solid rgba(192,132,252,0.15);
+      transition: var(--transition);
+    }
+    .masterwork-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--primary);
+      box-shadow: var(--shadow-hover);
+    }
+    .card-icon {
+      width: 4rem;
+      height: 4rem;
+      background: rgba(192,132,252,0.15);
+      border-radius: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 1.2rem;
+    }
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin: 1rem 0;
+    }
+    .tag {
+      background: rgba(255,255,255,0.02);
+      padding: 0.2rem 1rem;
+      border-radius: 60px;
+      font-size: 0.75rem;
+      border: 1px solid rgba(192,132,252,0.2);
+    }
+
+    /* testimonial */
+    .testimonial-aurora {
+      background: var(--bg-card);
+      border-radius: 3rem;
+      padding: 2.5rem;
+      max-width: 750px;
+      margin: 0 auto;
+      border: 1px solid rgba(192,132,252,0.2);
+    }
+
+    /* contact */
+    .contact-nebula {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      background: var(--bg-elevated);
+      border-radius: 3rem;
+      padding: 3rem;
+      border: 1px solid rgba(192,132,252,0.2);
+    }
+    .nebula-form input, .nebula-form textarea {
+      width: 100%;
+      background: rgba(0,0,0,0.4);
+      border: 1px solid rgba(192,132,252,0.3);
+      border-radius: 3rem;
+      padding: 1rem 1.8rem;
+      color: white;
+      margin-bottom: 1.2rem;
+      transition: 0.2s;
+      font-family: inherit;
+    }
+    .nebula-form input:focus, .nebula-form textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(192,132,252,0.2);
+    }
+
+    footer {
+      background: var(--bg-elevated);
+      border-radius: 3rem 3rem 0 0;
+      padding: 4rem 2rem 2rem;
+      margin-top: 2rem;
+      border-top: 1px solid rgba(192,132,252,0.1);
+    }
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .footer-link {
+      display: inline-block;
+      color: var(--text-muted);
+      margin: 0.5rem 0;
+      transition: 0.2s;
+    }
+    .footer-link:hover { color: white; transform: translateX(4px); }
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--bg-card);
+      width: 3rem;
+      height: 3rem;
+      border-radius: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.2s;
+      border: 1px solid rgba(192,132,252,0.4);
+      cursor: pointer;
+      z-index: 99;
+    }
+    .back-to-top.active { opacity: 1; visibility: visible; }
+
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; text-align: center; }
+      .about-grid { grid-template-columns: 1fr; }
+      .contact-nebula { grid-template-columns: 1fr; }
+      .nav-menu {
+        position: fixed;
+        top: 75px;
+        left: -100%;
+        width: 100%;
+        background: rgba(1,1,12,0.96);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem;
+        transition: 0.3s;
+        border-bottom: 1px solid #2d2f42;
+      }
+      .nav-menu.active { left: 0; }
+      .hamburger { display: flex; }
+      .hero-social { display: none; }
+      .hero-title { font-size: 2.8rem; }
+    }
+    .preloader {
+      position: fixed;
+      inset: 0;
+      background: #01010c;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .glide__bullet--active { background: var(--primary); }
+  </style>
+</head>
+<body>
+  <div class="preloader"><div style="width: 50px; height: 50px; border: 3px solid rgba(192,132,252,0.2); border-top-color: #c084fc; border-radius: 50%; animation: spin 1s infinite;"></div></div>
+  <style>@keyframes spin { to { transform: rotate(360deg); } }</style>
+
+  <header>
+    <div class="container header-container">
+      <a href="#" class="logo"><span class="logo-icon"><i class="fa-regular fa-gem"></i></span> Rajvardhan</a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="#home" class="nav-link active"><i class="fa-regular fa-compass"></i> Home</a></li>
+          <li><a href="#about" class="nav-link"><i class="fa-regular fa-user"></i> About</a></li>
+          <li><a href="#services" class="nav-link"><i class="fa-regular fa-star"></i> Services</a></li>
+          <li><a href="#portfolio" class="nav-link"><i class="fa-regular fa-briefcase"></i> Work</a></li>
+          <li><a href="#contact" class="nav-link"><i class="fa-regular fa-message"></i> Contact</a></li>
+        </ul>
+        <div class="hamburger"><span></span><span></span><span></span></div>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero-social">
+    <a href="https://github.com/singhrajvardhan" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/rajvardhan-singh-5b76a93a7/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    <a href="https://www.instagram.com/webbyraj/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div data-aos="fade-up">
+        <div class="hero-badge"><i class="fa-regular fa-sparkles"></i> web + cloud artisan</div>
+        <h1 class="hero-title">where <span class="gradient-text">beauty</span> meets <span class="gradient-text">infrastructure</span></h1>
+        <p class="hero-subtitle">I'm Rajvardhan — I craft high-performance web experiences and the cloud foundations that scale infinitely. Pixel-perfect frontend meets DevOps mastery.</p>
+        <div class="hero-cta" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="#portfolio" class="btn btn-primary"><i class="fa-regular fa-eye"></i> Explore work</a>
+          <a href="#contact" class="btn btn-outline"><i class="fa-regular fa-paper-plane"></i> Start project</a>
+        </div>
+      </div>
+      <div data-aos="fade-left" data-aos-delay="200" class="dual-sphere">
+        <div class="sphere-card">
+          <div class="sphere-icon"><i class="fa-regular fa-window-maximize"></i></div>
+          <h3 style="margin: 1rem 0;">Frontend Alchemy</h3>
+          <p>React, Vue, responsive UI/UX</p>
+          <div style="margin-top: 1rem;"><i class="fa-brands fa-react"></i> <i class="fa-brands fa-figma"></i> <i class="fa-brands fa-tailwind"></i></div>
+        </div>
+        <div class="sphere-card">
+          <div class="sphere-icon"><i class="fa-regular fa-cloud-arrow-up"></i></div>
+          <h3 style="margin: 1rem 0;">Cloud Orchestration</h3>
+          <p>AWS · K8s · Terraform · CI/CD</p>
+          <div><i class="fa-regular fa-cube"></i> docker <i class="fa-regular fa-code-merge"></i> actions</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">the alchemist</div>
+        <h2 class="section-title">design · code · <span style="background: linear-gradient(135deg,#fb923c,#ec489a); -webkit-background-clip:text; background-clip:text; color:transparent;">scale</span></h2>
+      </div>
+      <div class="about-grid">
+        <div data-aos="flip-left" class="hologram">
+          <img src="https://placehold.co/500x500/0f1222/8b5cf6?text=Raj+Singh" alt="Rajvardhan Singh">
+        </div>
+        <div data-aos="fade-right">
+          <p style="font-size:1.3rem; margin-bottom:1.8rem; color:#e2e8f0;">I bridge the gap between designer intuition and infrastructure engineering. From smooth micro-interactions to auto-scaling clusters, I deliver end-to-end digital solutions.</p>
+          <div style="margin-bottom: 2rem;">
+            <span class="skill-chip"><i class="fa-regular fa-pen-fancy"></i> UI/UX</span>
+            <span class="skill-chip"><i class="fa-brands fa-react"></i> React/Vue</span>
+            <span class="skill-chip"><i class="fa-regular fa-cloud"></i> AWS/Azure</span>
+            <span class="skill-chip"><i class="fa-regular fa-cubes"></i> Kubernetes</span>
+            <span class="skill-chip"><i class="fa-regular fa-terminal"></i> Terraform</span>
+            <span class="skill-chip"><i class="fa-regular fa-code-branch"></i> CI/CD</span>
+          </div>
+          <a href="rajcv.pdf" download class="btn btn-outline"><i class="fa-regular fa-file-arrow-down"></i> Download CV (PDF)</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">disciplines</div>
+        <h2 class="section-title">craft · engineer · <span>automate</span></h2>
+      </div>
+      <div class="services-grid">
+        <div class="crystal-card"><i class="fa-regular fa-code service-icon"></i><h3>Frontend Dev</h3><p>React, Vue, Tailwind, Framer Motion, responsive design</p></div>
+        <div class="crystal-card"><i class="fa-regular fa-palette service-icon"></i><h3>UI/UX Design</h3><p>Figma, prototypes, design systems, accessibility</p></div>
+        <div class="crystal-card"><i class="fa-regular fa-cloud service-icon"></i><h3>AWS Cloud</h3><p>EC2, S3, Lambda, VPC, CloudFront, RDS</p></div>
+        <div class="crystal-card"><i class="fa-regular fa-cubes service-icon"></i><h3>Kubernetes</h3><p>Orchestration, Helm, monitoring (Prometheus)</p></div>
+        <div class="crystal-card"><i class="fa-regular fa-code-merge service-icon"></i><h3>CI/CD Pipelines</h3><p>GitHub Actions, Jenkins, GitLab CI</p></div>
+        <div class="crystal-card"><i class="fa-regular fa-infinity service-icon"></i><h3>Infra as Code</h3><p>Terraform, CloudFormation, Ansible</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <div class="stats" data-aos="zoom-in">
+    <div class="stats-grid">
+      <div class="stat-item"><div class="stat-number" data-count="8">0</div><div>Web Projects</div></div>
+      <div class="stat-item"><div class="stat-number" data-count="5">0</div><div>Cloud Deployments</div></div>
+      <div class="stat-item"><div class="stat-number" data-count="18">0</div><div>Tools Mastered</div></div>
+    </div>
+  </div>
+
+  <!-- Portfolio -->
+  <section class="section" id="portfolio">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">masterworks</div>
+        <h2 class="section-title">web · cloud · <span>fusion</span></h2>
+      </div>
+      <div class="portfolio-tabs">
+        <button class="tab-btn active" data-filter="all">All</button>
+        <button class="tab-btn" data-filter="web">Web</button>
+        <button class="tab-btn" data-filter="cloud">Cloud/DevOps</button>
+      </div>
+      <div class="portfolio-grid" id="portfolio-grid">
+        <div class="masterwork-card" data-category="web"><div class="card-icon"><i class="fa-regular fa-globe"></i></div><h3>Thikana Dhabla</h3><p>Heritage website with family tree & storytelling</p><div class="project-tags"><span class="tag">React</span><span class="tag">SCSS</span></div><a href="#" class="btn btn-outline" style="margin-top: 1rem;">Live demo →</a></div>
+        <div class="masterwork-card" data-category="web"><div class="card-icon"><i class="fa-regular fa-building"></i></div><h3>Deep Architect</h3><p>Portfolio for architecture studio</p><div class="project-tags"><span class="tag">Next.js</span><span class="tag">Tailwind</span></div><a href="#" class="btn btn-outline">Visit site</a></div>
+        <div class="masterwork-card" data-category="web"><div class="card-icon"><i class="fa-regular fa-calendar"></i></div><h3>JuzVents</h3><p>Event management platform, booking system</p><div class="project-tags"><span class="tag">Vue</span><span class="tag">GSAP</span></div><a href="#" class="btn btn-outline">Explore</a></div>
+        <div class="masterwork-card" data-category="cloud"><div class="card-icon"><i class="fa-regular fa-cloud"></i></div><h3>3-Tier AWS App</h3><p>VPC, ALB, EC2, RDS high availability</p><div class="project-tags"><span class="tag">AWS</span><span class="tag">Terraform</span></div><a href="#" class="btn btn-outline">Case study</a></div>
+        <div class="masterwork-card" data-category="cloud"><div class="card-icon"><i class="fa-regular fa-cubes"></i></div><h3>K8s Microservices</h3><p>Deployed with Helm, Prometheus stack</p><div class="project-tags"><span class="tag">K8s</span><span class="tag">Docker</span></div><a href="#" class="btn btn-outline">Repo</a></div>
+        <div class="masterwork-card" data-category="cloud"><div class="card-icon"><i class="fa-regular fa-code-merge"></i></div><h3>GitHub Actions CI/CD</h3><p>Auto-deploy to EC2 + Slack notifier</p><div class="project-tags"><span class="tag">CI/CD</span><span class="tag">Docker</span></div><a href="#" class="btn btn-outline">Pipeline</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header"><div class="section-eyebrow">praise</div><h2 class="section-title">client <span>echoes</span></h2></div>
+      <div class="glide" data-aos="fade-up">
+        <div class="glide__track" data-glide-el="track"><ul class="glide__slides"><li class="glide__slide"><div class="testimonial-aurora"><i class="fa-regular fa-quote-left" style="font-size: 2rem; color: var(--primary);"></i><p style="margin: 1.5rem 0;">“Rajvardhan delivered a stunning website and also optimized our cloud infrastructure — performance skyrocketed!”</p><h4>Ramendra Singh</h4></div></li><li class="glide__slide"><div class="testimonial-aurora"><i class="fa-regular fa-quote-left" style="font-size: 2rem; color: var(--primary);"></i><p style="margin: 1.5rem 0;">“A true alchemist: perfect UI and robust backend. Rare combination of design taste & devops expertise.”</p><h4>Rupesh Singh</h4></div></li><li class="glide__slide"><div class="testimonial-aurora"><i class="fa-regular fa-quote-left" style="font-size: 2rem; color: var(--primary);"></i><p style="margin: 1.5rem 0;">“Our event platform now handles 3x traffic thanks to his cloud architecture. Highly recommend!”</p><h4>JuzVents Team</h4></div></li></ul></div>
+        <div class="glide__bullets" data-glide-el="controls[nav]"><button class="glide__bullet"></button><button class="glide__bullet"></button><button class="glide__bullet"></button></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-header"><div class="section-eyebrow">connect</div><h2 class="section-title">initiate <span>creation</span></h2></div>
+      <div class="contact-nebula">
+        <div data-aos="fade-right"><h3 style="font-size: 2rem;">Dream big?</h3><p style="margin: 1rem 0;">Let's build something unforgettable — from visionary UI to limitless cloud scale.</p><div style="display: flex; gap: 1rem; margin: 1.5rem 0;"><i class="fa-regular fa-envelope" style="color: var(--primary);"></i> rajvardhancoder@gmail.com</div><div style="display: flex; gap: 1rem;"><i class="fa-regular fa-phone"></i> +91 97702-89936</div><div style="display: flex; gap: 1rem; margin-top: 1rem;"><i class="fa-regular fa-location-dot"></i> Indore, India</div></div>
+        <div class="nebula-form" data-aos="fade-left"><form id="contactForm"><input type="hidden" name="access_key" value="a6b1db09-ab00-4a68-982a-0562ba039b75"><input type="text" name="name" placeholder="Your name" required><input type="email" name="email" placeholder="Email" required><textarea name="message" rows="4" placeholder="Tell me your vision..."></textarea><button type="submit" class="btn btn-primary" style="width:100%;"><i class="fa-regular fa-paper-plane"></i> Send message</button><div class="form-status" style="margin-top: 1rem; text-align: center;"></div></form></div>
+      </div>
+    </div>
+  </section>
+
+  <footer><div class="container footer-grid"><div><h3 style="font-size: 2rem;">Rajvardhan</h3><p style="color: var(--text-muted);">web + cloud alchemy</p></div><div><h4>Explore</h4><a href="#home" class="footer-link">Home</a><br><a href="#portfolio" class="footer-link">Work</a><br><a href="#services" class="footer-link">Services</a></div><div><h4>Connect</h4><a href="https://github.com/singhrajvardhan" class="footer-link">GitHub</a><br><a href="https://www.linkedin.com/in/rajvardhan-singh-5b76a93a7/" class="footer-link">LinkedIn</a></div></div><div class="container" style="text-align:center; margin-top: 3rem;">© <span id="year"></span> — infused with creativity & cloud magic</div></footer>
+  <a href="#" class="back-to-top"><i class="fa-regular fa-arrow-up"></i></a>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.5.0/glide.min.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+    window.addEventListener('load', () => document.querySelector('.preloader').style.display = 'none');
+
+    // Mobile menu
+    const hamburger = document.querySelector('.hamburger'), navMenu = document.querySelector('.nav-menu');
+    hamburger.addEventListener('click', () => { navMenu.classList.toggle('active'); });
+    document.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', () => { navMenu.classList.remove('active'); }));
+
+    // back to top
+    const toTop = document.querySelector('.back-to-top');
+    window.addEventListener('scroll', () => { window.scrollY > 400 ? toTop.classList.add('active') : toTop.classList.remove('active'); });
+    toTop.addEventListener('click', (e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+    // stats counter
+    const statsSec = document.querySelector('.stats');
+    let counted = false;
+    const countUp = () => {
+      if(counted) return;
+      counted = true;
+      document.querySelectorAll('.stat-number').forEach(c => { const target = +c.dataset.count; let current = 0; const interval = setInterval(() => { current += Math.ceil(target / 40); if (current >= target) { c.innerText = target; clearInterval(interval); } else c.innerText = current; }, 30); });
+    };
+    new IntersectionObserver((e) => { if(e[0].isIntersecting) countUp(); }, { threshold: 0.4 }).observe(statsSec);
+
+    // portfolio filtering
+    const btns = document.querySelectorAll('.tab-btn');
+    const portfolioItems = document.querySelectorAll('.masterwork-card');
+    btns.forEach(btn => btn.addEventListener('click', function() {
+      btns.forEach(b => b.classList.remove('active')); this.classList.add('active');
+      const filter = this.dataset.filter;
+      portfolioItems.forEach(item => { item.style.display = (filter === 'all' || item.dataset.category === filter) ? 'block' : 'none'; });
+    }));
+
+    // glide
+    new Glide('.glide', { type: 'carousel', perView: 1, autoplay: 4000, animationDuration: 700 }).mount();
+
+    // contact form web3forms
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const fd = new FormData(this);
+      const statusDiv = document.querySelector('.form-status');
+      statusDiv.innerHTML = '<i class="fa-regular fa-spinner fa-pulse"></i> sending...';
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: fd });
+        const data = await res.json();
+        if (data.success) { statusDiv.innerHTML = '<i class="fa-regular fa-circle-check"></i> Message sent!'; this.reset(); setTimeout(() => statusDiv.innerHTML = '', 3000); }
+        else throw new Error();
+      } catch(err) { statusDiv.innerHTML = '<i class="fa-regular fa-circle-exclamation"></i> Error, try again.'; }
+    });
+    document.getElementById('year').innerText = new Date().getFullYear();
+
+    // active nav highlight on scroll
+    const sections = document.querySelectorAll('section[id]');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(sec => { const top = sec.offsetTop - 100; if (pageYOffset >= top) current = sec.getAttribute('id'); });
+      document.querySelectorAll('.nav-link').forEach(link => { link.classList.remove('active'); if (link.getAttribute('href') === `#${current}`) link.classList.add('active'); });
+    });
+  </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"e2db992dacb74a75b55a3eb507aec4da","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
